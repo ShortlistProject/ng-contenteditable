@@ -82,7 +82,12 @@
           }
 
           if (opts.noLineBreaks) {
-            html = html.replace(/<div>/g, '').replace(/<br>/g, '').replace(/<\/div>/g, '');
+            html = html
+              .replace(/<div>/g, '')
+              .replace(/<br>/g, '')
+              .replace(/<\/div>/g, '')
+              .replace(/<p>/g, '')
+              .replace(/<\/p>/g, '');
           }
 
           return html;
