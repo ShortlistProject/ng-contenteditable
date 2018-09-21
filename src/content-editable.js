@@ -19,7 +19,7 @@
 
         // options
         var opts = {};
-        angular.forEach(['onlyText', 'convertNewLines'], function (opt) {
+        angular.forEach(['onlyText', 'convertNewLines', 'noLineBreaks'], function (opt) {
           var o = attrs[opt];
           opts[opt] = o && o !== 'false';
         });
@@ -79,6 +79,10 @@
 
           if (opts.onlyText) {
             html = html.replace(/<\S[^><]*>/g, '');
+          }
+
+          if (opts.noLineBreaks) {
+            html = html.replace(/<div>/g, '').replace(/<br>/g, '').replace(/<\/div>/g, '');
           }
 
           return html;
