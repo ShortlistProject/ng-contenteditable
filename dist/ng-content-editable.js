@@ -62,7 +62,7 @@
         return;
 
         function getModelKey() {
-          var split = attrs.ngModel.split('.');
+          var split = (attrs.ngModel) ? attrs.ngModel.split('.') : args[0];
 
           return split[split.length - 1];
         }
